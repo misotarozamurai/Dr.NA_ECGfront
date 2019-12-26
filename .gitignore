@@ -109,3 +109,5 @@ dist
 
 # bundle file
 public/js
+public/movie
+public/img
