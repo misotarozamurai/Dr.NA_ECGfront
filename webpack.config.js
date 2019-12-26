@@ -7,7 +7,7 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, 'public/js'),
-        filename: "bundle.js",
+        filename: "main.bundle.js",
     },
     module: {
         rules: [
@@ -51,11 +51,22 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
+            {
+                test: /\.(mov|mp4)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '../movie/[name].[ext]'
+                        }
+                    }
+                ]
+            },
         ],
     },
     resolve: {
-        extensions: ['.ini', '.js', '.sass'],
+        extensions: ['.ini', '.js', '.sass', '.mp4'],
         modules: [
             path.resolve(__dirname, 'node_modules'),
             path.resolve(__dirname, 'src/js'),
