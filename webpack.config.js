@@ -6,7 +6,7 @@ module.exports = {
     mode: MODE,
     entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, 'public/js'),
+        path: path.resolve(__dirname, 'public/dist'),
         filename: "main.bundle.js",
     },
     module: {
@@ -58,7 +58,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '../movie/[name].[ext]'
+                            name: './movie/[name].[ext]'
                         }
                     }
                 ]
@@ -66,7 +66,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.ini', '.js', '.sass', '.mp4'],
+        extensions: ['.ini', '.js', '.sass', '.mp4', '.gif'],
         modules: [
             path.resolve(__dirname, 'node_modules'),
             path.resolve(__dirname, 'src/js'),
