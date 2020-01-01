@@ -63,7 +63,7 @@ const createImg = () => {
 const creataData = (avg, height) => {
     // Creating a height element
     const _height = createElement('p', false, ['height']);
-    _height.textContent = escapeHtml('height : ' + height + 'cm');
+    _height.textContent = height;
     // Creating pulse elements and creating icons
     const _pulse = createElement('p', false, ['pulse']);
     const item = createElement('span', false, ['item']);
@@ -72,7 +72,7 @@ const creataData = (avg, height) => {
 
     // Creating AVG elements
     const _avg = createElement('p', false, ['avg']);
-    _avg.textContent = escapeHtml('AVG : ' + avg);
+    _avg.textContent = avg;
 
     // Formatting AVG elements
     item.appendChild(heart);
@@ -80,11 +80,9 @@ const creataData = (avg, height) => {
     _pulse.appendChild(pulse_data);
 
     // Object containing the element
-    const elements = {
+    return {
         height: _height,
         pulse: _pulse,
         avg: _avg
     }
-
-    return elements;
 }
