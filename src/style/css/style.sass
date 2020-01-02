@@ -3,17 +3,6 @@
 @import ./common
 
 //--------------------------------------------------------------------------
-// Result Video
-//--------------------------------------------------------------------------
-#result-video
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    z-index: -100
-
-//--------------------------------------------------------------------------
 // wrapper
 //--------------------------------------------------------------------------
 #wrapper
@@ -25,12 +14,62 @@
     line-height: 1.5em
     z-index: 100
 
+// Reflected on initial screen
+.wrapper_bg
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
+    height: 100vh
+    text-align: center
+
+
+//--------------------------------------------------------------------------
+// Logo
+//--------------------------------------------------------------------------
+#logo-warpper
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    margin: auto
+    width: max-content
+    height: max-content
+
+    & > img
+        display: block
+
+    & > .logo_img
+        animation: logo 8s ease-in-out 0s infinite normal
+        transform-origin: center center
+
+@keyframes logo
+    0%
+        transform: rotate3d(0, 0, 0, 0deg)
+    33%
+        transform: rotate3d(0, 0, 0, 0deg)
+    100%
+        transform: rotate3d(-1, -1, -1, 360deg)
+        
+
+//--------------------------------------------------------------------------
+// Result Video
+//--------------------------------------------------------------------------
+#result-video
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: -100
+
+
 //--------------------------------------------------------------------------
 // ECG
 //--------------------------------------------------------------------------
 #pulse-wrapper
     top: 61%
     right: 19%
+
 
 //--------------------------------------------------------------------------
 // console box
@@ -40,11 +79,14 @@
     left: 5.6%
     width: 36.3%
     height: 37.4%
+    background: #000
 
 .console_text
     color: rgba(0,255,0,1)
     font-size: 2.5vh
-    margin: 2% 0 0 1%
+    margin-left: 1%
+    padding-top: 1% 
+
 
 //--------------------------------------------------------------------------
 // DNA DataBox
@@ -54,7 +96,7 @@
     right: 11%
     width: 41%
     display: grid
-    grid-template-rows: 430px 100%
+    grid-template-rows: 430px max-content
     grid-template-columns:  calc(100% / 4) calc(100% / 4) calc(100% / 4) calc(100% / 4)
 
 .data_image
@@ -86,9 +128,6 @@
     padding-right: 10px
     &::before
         content: "AVG : "
-
-    
-
 
 // Icon (heart)
 .item
