@@ -37,3 +37,29 @@ export const escapeHtml = str => {
     str = str.replace(/'/g, '&#39;');
     return str;
 }
+
+
+//--------------------------------------------------------------------------
+// Delete child element of parent element
+//--------------------------------------------------------------------------
+const divWrapper = document.getElementById('wrapper');
+// ----- Change the style of wrapper and prepare for drawing animation -----
+export const wrapperStyleToggle = (names = []) => {
+    _.forEach(names, name => {
+        divWrapper.classList.toggle(name);
+    });
+}
+
+// ----- Delete all child elements -----
+export const removeWrapperChild = () => {
+    while(divWrapper.firstChild) {
+        divWrapper.removeChild(divWrapper.firstChild);
+    }
+}
+
+// ----- Delete the child element of the parent element specified by ID -----
+export const removeSpecificChild = (parent, child) => {
+    const _parent = document.getElementById(parent);
+    const _child = document.getElementById(child);
+    _parent.removeChild(_child);
+}
