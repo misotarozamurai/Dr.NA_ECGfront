@@ -66,7 +66,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.ini', '.js', '.sass', '.mp4', '.gif'],
+        extensions: ['.ini', '.js', '.sass', '.mp4', '.jpg', '.png', '.gif'],
         modules: [
             path.resolve(__dirname, 'node_modules'),
             path.resolve(__dirname, 'src/js'),
