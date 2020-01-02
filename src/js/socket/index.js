@@ -1,6 +1,7 @@
 'use strict'
 
-import {startResult} from 'app'
+import {startResult, endResult} from 'app'
+import {createConsoleText} from 'component/console'
 
 // ----- Analysis start flag -----
 export const dataFlaw = {
@@ -32,16 +33,27 @@ export default class WsSock extends WebSocket {
         // When a message is received
         this.onmessage = evt => {
             console.log('webSocket onmessage()');
+
             const message = JSON.parse(evt.data);
             switch(message.type) {
+                // Start analysis
                 case 'result':
                     if(dataFlaw.flg) {
                         dataFlaw.flg = dataFlaw.flg = !dataFlaw.flg;
                         startResult(message);
                     }
                     break;
+                // Display the message being analyzed
+                case 'message':
+                    this.consoleDisplay(message.message);
+                    break;
+                // End of analysis
                 case 'Animation END':
                     if(!dataFlaw.flg) dataFlaw.flg = !dataFlaw.flg;
+                    (async() => {
+                        this.consoleDisplay(message.message);
+                        await endResult();
+                    })();
                     break;
                 default:
                     console.log('Invalid message');
@@ -49,4 +61,9 @@ export default class WsSock extends WebSocket {
             }
         };
     } 
+
+    // ----- Display message in console element -----
+    consoleDisplay(message) {
+        createConsoleText(message);
+    }
 }
