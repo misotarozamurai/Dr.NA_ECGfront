@@ -108,6 +108,4 @@ dist
 .DS_Store
 
 # bundle file
-public/js
-public/movie
-public/img
+public/dist
