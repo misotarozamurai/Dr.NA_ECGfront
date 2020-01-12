@@ -4,6 +4,7 @@ import WsSock from 'socket'
 import {startResultECG} from 'component'
 import {createTopDisplay, resetTopDisplay} from 'component/top'
 import {removeWrapperChild, removeSpecificChild} from 'element'
+import {execPOST} from 'form'
 
 //--------------------------------------------------------------------------
 // Control the entire application
@@ -21,6 +22,7 @@ export const startResult = data => {
     const pulses = data.pulse;
     const height = data.height;
     startResultECG(pulses, height);
+    execPOST(data);
 }
 
 // ----- End the analysis and return to the top screen -----
