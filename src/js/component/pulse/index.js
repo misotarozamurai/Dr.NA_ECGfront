@@ -14,10 +14,8 @@ export const createECG = pulse => {
     // ECG drawing element
     const canvas = createElement('canvas', true, ['pulse-canvas']);
     const main = document.getElementById('main');
-    // canvas.width = window.parent.screen.width / 2.7;
-    // canvas.height = window.parent.screen.height / 5.9;
-    canvas.width = main.clientWidth / 2.7;
-    canvas.height = main.clientHeight / 5.9;
+    canvas.width = main.clientWidth / 2.6;
+    canvas.height = main.clientHeight / 6.5;
 
     // Formatting entire elements
     wrpper.appendChild(canvas);

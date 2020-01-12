@@ -46,10 +46,10 @@ const createLogo = () => {
 
     // Generating a title image
     const _title = createElement('img', false, ['logo_title']);
-    _title.src = escapeHtml('dist/img/title.png');
+    _title.src = escapeHtml('img/title.png');
     _title.alt = escapeHtml('タイトル画像');
-    _title.width = 700;
-    _title.height = 150;
+    _title.width = 650;
+    _title.height = 200;
 
     _wrapper.appendChild(_logo);
     _wrapper.appendChild(_title);

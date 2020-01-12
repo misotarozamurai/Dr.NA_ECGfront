@@ -39,7 +39,7 @@ export default class WsSock extends WebSocket {
                 // Start analysis
                 case 'result':
                     if(dataFlaw.flg) {
-                        dataFlaw.flg = dataFlaw.flg = !dataFlaw.flg;
+                        dataFlaw.flg = !dataFlaw.flg;
                         startResult(message);
                     }
                     break;

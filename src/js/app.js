@@ -25,7 +25,7 @@ export const startResult = data => {
 
 // ----- End the analysis and return to the top screen -----
 export const endResult = async() => {
-    await sleep(2000);
+    await sleep(3000);
     removeSpecificChild('main', 'result-video');
     removeWrapperChild();
     startTop();
